@@ -1,7 +1,8 @@
 # ROS_edx
 
-## [Week1 - ROS Essentials](#week1)
-## [Week2 - Build your own robot environment](#week2)
+[Week1 - ROS Essentials](#week1)
+
+[Week2 - Build your own robot environment](#week2)
 
 ## <a name="week1"> Week 1 - ROS Essentials</a>
 
