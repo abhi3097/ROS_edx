@@ -38,20 +38,17 @@ The screenshot of the result is located in the directory *src/hrwros/hwros_week1
 	3. Publish the box height information on the */box_height_info* ONLY when the detected box has a valid height.
 
 Start a new terminal:
-
-	```
+```
 	roscore
-	```
+```
 In a new terminal:
-
-	```
+```
 	rosrun hrwros_week1 week1_assignment1.py
-	```
+```
 In another terminal
-
-	```
+```
 	rostopic list
-	```
+```
 If the the topic */box_height_info* is listed, run:
 
 	```
