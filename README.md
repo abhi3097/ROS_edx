@@ -52,11 +52,10 @@ In another terminal
 	rostopic list
 ```
 If the the topic */box_height_info* is listed, run:
-
-	```
+```
 	rostopic info /box_height_info
 	rostopic echo /box_height_info
-	```
+```
 
 After 5 messages, terminate the execution.
 
