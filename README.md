@@ -29,36 +29,33 @@ The result is located in the directory *src/hrwros/hwros_week1/scripts/week1_ass
 	```
 
 The screenshot of the result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png*
+
 3. _Task 3_: Only publish a new topic "/box_height_info" when a valid box is detected.
   1. Create an object of the new BoxHeightInformation message type when the detected box height is valid.
 	2. Create a publisher for the new massage type.
 	3. Publish the box height information on the */box_height_info* ONLY when the detected box has a valid height.
 
-	Start a new terminal:
-
+Start a new terminal:
 	```
 	roscore
 	```
-
-	In a new terminal:
+In a new terminal:
 	```
 	rosrun hrwros_week1 week1_assignment1.py
 	```
-
-	In another terminal
+In another terminal
 	```
 	rostopic list
 	```
-
-	If the the topic */box_height_info* is listed, run:
+If the the topic */box_height_info* is listed, run:
 	```
 	rostopic info /box_height_info
 	rostopic echo /box_height_info
 	```
-	
-	After 5 messages, terminate the execution.
 
-	The screenshot of the result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task3.png*
+After 5 messages, terminate the execution.
+
+The screenshot of the result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task3.png*
 
 
 
