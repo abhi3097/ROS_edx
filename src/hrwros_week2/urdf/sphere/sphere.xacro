@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="bin" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="prefix" default="sphere_1_"/>
+  <xacro:arg name="radi" default="1"/>
+
+  <!-- URDF -->
+  <xacro:include filename="$(find hrwros_week2)/urdf/sphere/sphere.urdf.xacro"/>
+  <xacro:sphere_urdf prefix="$(arg prefix radi)"/>
+
+  <!-- Gazebo -->
+  <!-- <xacro:include filename="$(find hrwros_support)/urdf/bin/bin.gazebo.xacro"/>
+  <xacro:bin_gazebo prefix="$(arg prefix)"/> -->
+
+</robot>

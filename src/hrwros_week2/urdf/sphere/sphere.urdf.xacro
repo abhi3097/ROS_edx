@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot name="sphere_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="sphere_urdf" params="prefix radi">
+    <!-- link list -->
+    <material name="green">
+      <color rgba="${  0/255} ${155/255} ${ 70/255} 1.0"/>
+    </material>
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <sphere radius="${radi}" />
+        </geometry>
+        <material name="green" />
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>
