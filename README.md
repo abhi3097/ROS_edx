@@ -78,3 +78,14 @@ Add a sphere under the staircase. Correct implementations will show:
 4. located under the stairs (as indicated by the red arrows in the two illustrations above)
 5. not touching anything other than the floor
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment2.png](src/hrwros_week2/urdf/hrwros_week2_assignment2.png)
+
+
+### Assignment 3
+Replace the robot ur5 with a provided robot. Correct implementations will show:
+Correct implementations will show:
+
+1. the new robot model properly mounted on the pedestal where Robot 2 is now
+2. the new robot with an identical orientation (ie: rotation) as Robot 2: in its startup pose, the replacement robot 3. should point in the same direction as the UR5. The replacement robot does not need to completely mimic the position of all joints and links of the UR5.
+4. the robot must be on the pedestal, not in the pedestal or slightly above it
+5. not touching anything other than the pedestal
+The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment3.png](src/hrwros_week2/urdf/hrwros_week2_assignment3.png)

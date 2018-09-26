@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- world -->
   <link name="world" />
@@ -59,35 +59,33 @@
     <origin xyz="-8.0 -2.2 0" rpy="0 0 0" />
   </joint>
 
-
-  <link name="robot2_pedestal_link">
+  <xacro:include filename="$(find hrwros_week2)/urdf/include/common_materials.xacro"/>
+  <link name="fanuc_lrmate200ic_pedestal_link">
     <visual>
       <origin xyz="0 0 0.3" />
       <geometry>
         <box size="0.3 0.3 0.6" />
       </geometry>
-      <material name="robot2_pedestal_color">
-        <color rgba="0 ${40/255} ${134/255} 1" />
-      </material>
+      <xacro:material_fanuc_green/>
     </visual>
   </link>
 
-  <joint name="robot2_pedestal_joint" type="fixed">
+  <joint name="fanuc_lrmate200ic_pedestal_joint" type="fixed">
     <origin xyz="-7.8 -1.5 0" />
     <parent link="world" />
-    <child link="robot2_pedestal_link" />
+    <child link="fanuc_lrmate200ic_pedestal_link" />
   </joint>
 
 
   <!-- Update the below block for assignment 3 here -->
 
 
-  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
-  <xacro:ur5_robot prefix="robot2_" joint_limited="true"/>
-  <joint name="robot2-robot2_pedestal_joint" type="fixed">
-    <parent link="robot2_pedestal_link" />
-    <child link="robot2_base_link" />
-    <origin xyz="0 0 0.6" rpy="0 0 ${radians(90)}" />
+  <xacro:include filename="$(find hrwros_week2)/urdf/robot/lrmate200ic_macro.xacro"/>
+  <xacro:fanuc_lrmate200ic prefix="fanuc_lrmate200ic_" joint_limited="true"/>
+  <joint name="fanuc_lrmate200ic-fanuc_lrmate200ic_pedestal_joint" type="fixed">
+    <parent link="fanuc_lrmate200ic_pedestal_link" />
+    <child link="fanuc_lrmate200ic_base_link" />
+    <origin xyz="0 0 0.6" rpy="0 0 ${radians(180)}" />
   </joint>
 
 
