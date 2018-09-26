@@ -68,3 +68,13 @@ Correct implementations will show:
 3. located opposite Robot 1 (ie: on the other side of the conveyor, as indicated by the red arrows in the two illustrations above)
 4. not touching anything other than the floor
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment1.png](src/hrwros_week2/urdf/hrwros_week2_assignment1.png)
+
+#### Assignment 2
+Add a sphere under the staircase. Correct implementations will show:
+
+1. a new, green sphere in the factory
+2. radius: 40 centimeters
+3. the sphere must be on the floor, not in the floor or slightly above it
+4. located under the stairs (as indicated by the red arrows in the two illustrations above)
+5. not touching anything other than the floor
+The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment2.png](src/hrwros_week2/urdf/hrwros_week2_assignment2.png)

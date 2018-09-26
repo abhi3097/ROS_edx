@@ -81,6 +81,7 @@
 
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
   <xacro:ur5_robot prefix="robot2_" joint_limited="true"/>
+
   <joint name="robot2-robot2_pedestal_joint" type="fixed">
     <parent link="robot2_pedestal_link" />
     <child link="robot2_base_link" />
@@ -88,11 +89,14 @@
   </joint>
 
 
-
-
-  <!-- Add your solution to assignment 2 here -->
-
-
+  <!-- sphere -->
+  <xacro:include filename="$(find hrwros_week2)/urdf/sphere/sphere.urdf.xacro" />
+  <xacro:sphere_urdf prefix="sphere_1_" radi="0.4" />
+  <joint name="sphere1_joint" type="fixed">
+    <parent link="world" />
+    <child link="sphere_1_base_link" />
+    <origin xyz="5.5 -4.5 0.4" />
+  </joint>
 
 
 
