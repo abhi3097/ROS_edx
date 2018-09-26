@@ -7,13 +7,7 @@
 ## <a name="week1"> Week 1 - ROS Essentials</a>
 
 #### Assignment 1
-Add an extra bin opposite to the robot.
-Correct implementations will show:
 
-an extra bin in the factory
-the bin must be on the floor, not in the floor or slightly above it
-located opposite Robot 1 (ie: on the other side of the conveyor, as indicated by the red arrows in the two illustrations above)
-not touching anything other than the floor
 Implementing a node to be both a publisher and an subscriber.
 ##### 1. _Task 1_:
 An ultrasound sensor is installed in a system. It is used for measuring the height of the boxes running on a conveyor belt. When there is no box, the sensor publishes the maximum range and when detecting one, it reports the distance to the top surface of the box. The  ***week1_assignment1.py*** is modified to achieve:
