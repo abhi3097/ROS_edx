@@ -28,39 +28,43 @@ class CounterWithDelayActionClass(object):
         rospy.loginfo("Action server started...")
 
     def execute_cb(self, goal):
+		#
         # OPTIONAL: NOT GRADED Check if the parameter for the counter delay is available on the parameter server.
-        # if not rospy.has_param("<write your code here>"):
-        #     rospy.loginfo("Parameter %s not found on the parameter server. Using default value of 1.0s for counter delay.","counter_delay")
-        #     counter_delay = 1.0
-        # else:
-        # Get the parameter for delay between counts.
-        counter_delay_value = rospy.get_param("<write your code here>")
+        if not rospy.has_param('counter_delay'):
+            rospy.loginfo("Parameter %s not found on the parameter server. Using default value of 1.0s for counter delay.","counter_delay")
+            counter_delay = 1.0
+        else:
+			pass
+		
+		# Get the parameter for delay between counts.
+        counter_delay_value = rospy.get_param('~counter_delay')
         rospy.loginfo("Parameter %s was found on the parameter server. Using %fs for counter delay."%("counter_delay", counter_delay_value))
-
-        # Variable to decide the final state of the action server.
+			
+		# Variable to decide the final state of the action server.
         success = True
-
-        # publish info to the console for the user
+			
+		# publish info to the console for the user
         rospy.loginfo('%s action server is counting up to  %i with %fs delay between each count' % (self._action_name, goal.num_counts, counter_delay_value))
-
-        # start executing the action
+			
+		# start executing the action
         for counter_idx in range(0, goal.num_counts):
-            # check that preempt has not been requested by the client
-            if self._as.is_preempt_requested():
-                rospy.loginfo('%s: Preempted' % self._action_name)
-                self._as.set_preempted()
-                success = False
-                break
-            # publish the feedback
-            self._feedback.counts_elapsed = counter_idx
-            self._as.publish_feedback(self._feedback)
-            # Wait for counter_delay s before incrementing the counter.
-            r.sleep()
-
+			# check that preempt has not been requested by the client
+			if self._as.is_preempt_requested():
+				rospy.loginfo('%s: Preempted' % self._action_name)
+				self._as.set_preempted()
+				success = False
+				break
+				
+			# publish the feedback
+			self._feedback.counts_elapsed = counter_idx
+			self._as.publish_feedback(self._feedback)
+			# Wait for counter_delay s before incrementing the counter.
+			rospy.sleep(counter_delay)
+			
         if success:
-            self._result.result_message = "Successfully completed counting."
-            rospy.loginfo('%s: Succeeded' % self._action_name)
-            self._as.set_succeeded(self._result)
+			self._result.result_message = "Successfully completed counting."
+			rospy.loginfo('%s: Succeeded' % self._action_name)
+			self._as.set_succeeded(self._result)
 
 if __name__ == '__main__':
     # Initialize a ROS node for this action server.

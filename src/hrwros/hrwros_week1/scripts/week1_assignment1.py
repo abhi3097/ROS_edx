@@ -9,7 +9,6 @@
 # All necessary python imports go here.
 import rospy
 from hrwros_msgs.msg import SensorInformation, BoxHeightInformation
-from hrwros_utilities.sim_sensor_data import distSensorData as getSensorData
 
 def sensor_info_callback(data, bhi_pub):
     # Compute the height of the box.

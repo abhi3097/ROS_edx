@@ -6,10 +6,14 @@
 
 ## <a name="week1"> Week 1 - ROS Essentials</a>
 
-
-
-
 #### Assignment 1
+Add an extra bin opposite to the robot.
+Correct implementations will show:
+
+an extra bin in the factory
+the bin must be on the floor, not in the floor or slightly above it
+located opposite Robot 1 (ie: on the other side of the conveyor, as indicated by the red arrows in the two illustrations above)
+not touching anything other than the floor
 Implementing a node to be both a publisher and an subscriber.
 ##### 1. _Task 1_:
 An ultrasound sensor is installed in a system. It is used for measuring the height of the boxes running on a conveyor belt. When there is no box, the sensor publishes the maximum range and when detecting one, it reports the distance to the top surface of the box. The  ***week1_assignment1.py*** is modified to achieve:
@@ -31,7 +35,7 @@ Create a new message type called BoxHeightInformation.msg containing the placeho
 	rosmsg show hrwros_msgs/BoxHeightInformation
 ```
 
-The screenshot of the result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png*
+The screenshot of the result is located in the directory [src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png](src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png)
 
 ##### 3. _Task 3_:
 Only publish a new topic "/box_height_info" when a valid box is detected.
@@ -59,8 +63,14 @@ If the the topic */box_height_info* is listed, run:
 
 After 5 messages, terminate the execution.
 
-The screenshot of the result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task3.png*
-
-
+The screenshot of the result is located in the directory gsrc/hrwros/hwros_week1/scripts/week1_assignment1_task3.png](src/hrwros/hwros_week1/scripts/week1_assignment1_task3.png)
 
 ## <a name="week2"> Week 2 - Build your own robot environment </a>
+#### Assignment 1
+Add an extra bin opposite to the robot.
+Correct implementations will show:
+1. an extra bin in the factory
+2. the bin must be on the floor, not in the floor or slightly above it
+3. located opposite Robot 1 (ie: on the other side of the conveyor, as indicated by the red arrows in the two illustrations above)
+4. not touching anything other than the floor
+The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment1.png](src/hrwros_week2/urdf/hrwros_week2_assignment1.png)
