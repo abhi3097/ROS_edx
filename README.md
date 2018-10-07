@@ -4,6 +4,8 @@
 
 [Week2 - Build your own robot environment](#week2)
 
+[Week3 - Autonomous navigation](#week3)
+
 ## <a name="week1"> Week 1 - ROS Essentials</a>
 
 #### Assignment 1
@@ -15,7 +17,7 @@ An ultrasound sensor is installed in a system. It is used for measuring the heig
 2. Compute the height of the box from the sensor reading.
 3. Filter out the false positives from the sensor due to sensor noise.
 
-The result is located in the directory *src/hrwros/hwros_week1/scripts/week1_assignment1_task1.png*
+The result is located in the directory *src/hrwros/hrwros_week1/scripts/week1_assignment1_task1.png*
 
 ##### 2. _Task 2_:
 Create a new message type called BoxHeightInformation.msg containing the placeholder "box_height" which is a floating point number.
@@ -29,7 +31,7 @@ Create a new message type called BoxHeightInformation.msg containing the placeho
 	rosmsg show hrwros_msgs/BoxHeightInformation
 ```
 
-The screenshot of the result is located in the directory [src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png](src/hrwros/hwros_week1/scripts/week1_assignment1_task2.png)
+The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png)
 
 ##### 3. _Task 3_:
 Only publish a new topic "/box_height_info" when a valid box is detected.
@@ -57,7 +59,7 @@ If the the topic */box_height_info* is listed, run:
 
 After 5 messages, terminate the execution.
 
-The screenshot of the result is located in the directory gsrc/hrwros/hwros_week1/scripts/week1_assignment1_task3.png](src/hrwros/hwros_week1/scripts/week1_assignment1_task3.png)
+The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task3.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task3.png)
 
 ## <a name="week2"> Week 2 - Build your own robot environment </a>
 #### Assignment 1
@@ -80,7 +82,7 @@ Add a sphere under the staircase. Correct implementations will show:
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment2.png](src/hrwros_week2/urdf/hrwros_week2_assignment2.png)
 
 
-### Assignment 3
+#### Assignment 3
 Replace the robot ur5 with a provided robot. Correct implementations will show:
 Correct implementations will show:
 
@@ -89,3 +91,38 @@ Correct implementations will show:
 4. the robot must be on the pedestal, not in the pedestal or slightly above it
 5. not touching anything other than the pedestal
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment3.png](src/hrwros_week2/urdf/hrwros_week2_assignment3.png)
+
+## <a name="week23"> Week 3 - Autonomous navigation </a>
+#### Assignment 1
+##### 1. _Task 1_:
+In this first part we will prepare for navigation in our factory world.
+
+1. Launch the hrwros factory simulation with:
+```
+roslaunch hrwros_gazebo hrwros_environment.launch
+```
+
+***Note***: If you are not successful in launching the environment, retry.
+
+2. Launch AMCL with a map of the factory we created:
+```
+roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml
+```
+3. Next, start the RViz navigation visualization:
+```
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+```
+Change *robot_description* to *turtlebot_description* under *RobotModel*.
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task1.png](src/hrwros_week3/week3_assignment1_task1.png)
+##### 2. _Task 2_:
+Find the location of the robot under *Model* -> *mobile_base* of Gazebo and run:
+```
+roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<XCOORD> initial_pose_y:=<YCOORD>
+```
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task2.png](src/hrwros_week3/week3_assignment1_task2.png)
+##### 3. _Task 3_:
+Navigating the turtlebot around the factory.
+```
+roslaunch turtlebot_teleop keyboard_teleop.launch
+```
+***Note***: Keep the terminal with teleop activewhile navigating.
