@@ -1,4 +1,5 @@
 build/
 devel/
 logs/
+/hrwros_support_w2
 .catkin_tools

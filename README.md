@@ -17,7 +17,7 @@ An ultrasound sensor is installed in a system. It is used for measuring the heig
 2. Compute the height of the box from the sensor reading.
 3. Filter out the false positives from the sensor due to sensor noise.
 
-The result is located in the directory *src/hrwros/hrwros_week1/scripts/week1_assignment1_task1.png*
+The result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task1.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task1.png)
 
 ##### 2. _Task 2_:
 Create a new message type called BoxHeightInformation.msg containing the placeholder "box_height" which is a floating point number.
@@ -28,7 +28,7 @@ Create a new message type called BoxHeightInformation.msg containing the placeho
 3. Generate the new message type as instructed in the lecture. Then run
 
 ```
-	rosmsg show hrwros_msgs/BoxHeightInformation
+rosmsg show hrwros_msgs/BoxHeightInformation
 ```
 
 The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png)
@@ -41,20 +41,20 @@ Only publish a new topic "/box_height_info" when a valid box is detected.
 
 Start a new terminal:
 ```
-	roscore
+roscore
 ```
 In a new terminal:
 ```
-	rosrun hrwros_week1 week1_assignment1.py
+rosrun hrwros_week1 week1_assignment1.py
 ```
 In another terminal
 ```
-	rostopic list
+rostopic list
 ```
 If the the topic */box_height_info* is listed, run:
 ```
-	rostopic info /box_height_info
-	rostopic echo /box_height_info
+rostopic info /box_height_info
+rostopic echo /box_height_info
 ```
 
 After 5 messages, terminate the execution.
@@ -92,7 +92,7 @@ Correct implementations will show:
 5. not touching anything other than the pedestal
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment3.png](src/hrwros_week2/urdf/hrwros_week2_assignment3.png)
 
-## <a name="week23"> Week 3 - Autonomous navigation </a>
+## <a name="week3"> Week 3 - Autonomous navigation </a>
 #### Assignment 1
 ##### 1. _Task 1_:
 In this first part we will prepare for navigation in our factory world.
@@ -125,4 +125,25 @@ Navigating the turtlebot around the factory.
 ```
 roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
-***Note***: Keep the terminal with teleop activewhile navigating.
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task3.png](src/hrwros_week3/week3_assignment1_tas k3.png)
+***Note***: Keep the terminal with teleop active while navigating.
+
+#### Assignment 2 - Pathing
+##### 1. _Task 1_: Visualize the planning
+In Rviz *Add* -> *Path* -> *Topic* -> */move_base/NavfnROS/plan*
+
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment2_task1.png](src/hrwros_week3/week3_assignment2_task1.png)
+
+##### 2. _Task 2_: Visualize the planning
+
+1. Add a new path display and subscribe it to */move_base/DWAPlannerROS/global_plan*. Change the colour from green to blue (0; 0; 255).
+
+2. Do the same for */move_base/DWAPlannerROS/local_plan*, and colour  it red (255; 0; 0).
+
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment2_task2.png](src/hrwros_week3/week3_assignment2_task2.png)
+
+#### Assignment 3 - Navigating using a ROS Node
+##### 1. _Task 1_:
+Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part1.py*** using the information under *TF* ->*turtlebot_target1*
+
+##### 2. _Task 2_:
