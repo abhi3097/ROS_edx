@@ -125,7 +125,7 @@ Navigating the turtlebot around the factory.
 ```
 roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
-The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task3.png](src/hrwros_week3/week3_assignment1_tas k3.png)
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task3.png](src/hrwros_week3/week3_assignment1_task3.png)
 ***Note***: Keep the terminal with teleop active while navigating.
 
 #### Assignment 2 - Pathing
@@ -144,6 +144,19 @@ The screenshot of the result is located in the directory [src/hrwros_week3/week3
 
 #### Assignment 3 - Navigating using a ROS Node
 ##### 1. _Task 1_:
-Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part1.py*** using the information under *TF* ->*turtlebot_target1*
+Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part1.py*** using the information under *TF* ->*turtlebot_target1*.
+Run:
+```
+roslaunch hrwros_gazebo hrwros_environment.launch
+roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<A> initial_pose_y:=<B>
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+roslaunch hrwros_week3 week3_assignment3_part1.launch
+```
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment3_task1.png](src/hrwros_week3/week3_assignment3_task1.png)
 
 ##### 2. _Task 2_:
+The first goal is to navigate the TurtleBot to its second target location, following similar steps as you followed in the first part. In the second part, the goal is to visualize and become aware of the ***"unknown obstacle avoidance"***. Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part2.py*** using the information under *TF* ->*turtlebot_target2*.
+```
+roslaunch hrwros_week3 week3_assignment3_part2.launch
+```
+The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment3_task2.png](src/hrwros_week3/week3_assignment3_task2.png)
