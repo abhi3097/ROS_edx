@@ -1,4 +1,7 @@
 build/
 devel/
 logs/
+hrwros_gazebo/
+hrwros_support_w2/
+hrwros_support_w3/
 .catkin_tools
