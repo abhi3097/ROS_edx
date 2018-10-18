@@ -304,7 +304,7 @@ When moving the TurtleBot around with the keyboard to a different location, you 
 
 The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task2.png](src/hrwros_week5/week5_assignment2_task2.png)
 
-#### Assignment 3
+#### Assignment 3 tf2_ros API
 Start the assignment specific factory simulation with:
 ```
 $ roslaunch hrwros_week5 week5_environment.launch
@@ -316,7 +316,7 @@ Call the spawn_object_on_turtlebot service with:
 $ rosservice call /spawn_object_on_turtlebot
 ```
 
-After this, you should see a white box show up on top of the TurtleBot. Now, complete the script ***week5_assignment3.py*** where you are instructed with ***write your code here***. This involves the following tasks:
+After this, you should see a white box show up on top of the TurtleBot. Now, complete the script ***week5_assignment3.py*** where you are instructed with *write your code here*. This involves the following tasks:
 
 1. Subscribe to the relevant topic which would contain information about the object on top of the TurtleBot.
 
