@@ -262,7 +262,7 @@ Configure the logical cameras accordingly.
 $ roslaunch hrwros_gazebo hrwros_environment.launch
 ```
 
-The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task2.hpg](src/hrwros_week5/week5_assignment1_task2.jpg)
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task2.jpg](src/hrwros_week5/week5_assignment1_task2.jpg)
 
 #### Assignment 2 TF command line tools
 ##### 1. _Task 1_: View_frames and tf_echo:
@@ -281,43 +281,49 @@ The screenshot of the result is located in the directory [src/hrwros_week5/week5
 Use the static_transform_publisher to publish a static transform between the plate_top_link and a new frame called turtlebot_object_top which will be located 20cm on top of the TurtleBot.
 
 1. Start the simulation in RViz as
-``` $ roslaunch hrwros_gazebo hrwros_environment.launch```
+```
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+```
 
 2. Then add an additional Robot Model display and modify the ***robot_description*** to ***turtlebot_description***.
-3. Now, enable the TF visualization such that only the ***plate_top_link*** frame is shown.
+3. Enable the TF visualization such that only the ***plate_top_link*** frame is shown.
 
 4. Start a new terminal. Publish a static transform between ***plate_top_link*** and a new frame ***turtlebot_object_top*** such that the ***turtlebot_object_top frame*** is 20cm above ***plate_top_link***. Recall that a static transform can be published as follows:
 ```
 $ rosrun tf2_ros static_transform_publisher <specify_correct_translation> 0 0 0 1 plate_top_link turtlebot_object_top
 ```
 
-5. Go back to RViz and enable the newly published frame turtlebot_object_top. It should show up exactly on top of the reference frame for plate_top_link.
+5. Go back to RViz and enable the newly published frame ***turtlebot_object_top***. It should show up exactly on top of the reference frame for ***plate_top_link***.
 
 6. Now in a new terminal, start the turtlebot teleoperation with:
 ```
 $ roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
 
-Move the TurtleBot around with the keyboard to a different location of your choice and notice that the newly published TF frame ***turtlebot_object_top*** moves along with the TurtleBot.
+When moving the TurtleBot around with the keyboard to a different location, you can notice that the newly published TF frame ***turtlebot_object_top*** moves along with the TurtleBot.
 
 The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task2.png](src/hrwros_week5/week5_assignment2_task2.png)
 
 #### Assignment 3
-Using the MoveGroup Interface for implementing a simple pick and place pipeline for robot2 on the same lines as we did for robot1
-1. Complete the script ***week4_assignment3.py*** in the hrwros_week4 package wherever you are instructed with *write your code here*.
-
-2. After you have completed the script, start the factory simulation in a new terminal with:
+Start the assignment specific factory simulation with:
 ```
-roslaunch hrwros_gazebo hrwros_environment.launch.
+$ roslaunch hrwros_week5 week5_environment.launch
 ```
 
-3. Then, make sure to adjust the perspective of the Gazebo Simulation to have a clear view of Robot2.
-
-4. In another terminal, first navigate to the ***hrwros_week4/scripts*** folder with roscd. Make the ***week4_assignment3.py*** script executable.
-
-5. Finally, run the command:
+You should see the factory simulation show up as usual, we have just modified some internal configurations for this assignment. Verify that the Turtlebot now shows up right next to Robot2 pedestal under the newly installed logical camera.
+Call the spawn_object_on_turtlebot service with:
 ```
-roslaunch hrwros_week4 week4_assignment3.launch
+$ rosservice call /spawn_object_on_turtlebot
 ```
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week4_assignment3.jpg](src/hrwros/hrwros_week1/scripts/week1_assignment3.jpg)
+After this, you should see a white box show up on top of the TurtleBot. Now, complete the script ***week5_assignment3.py*** where you are instructed with ***write your code here***. This involves the following tasks:
+
+1. Subscribe to the relevant topic which would contain information about the object on top of the TurtleBot.
+
+2. Update the relevant reference frame for the pose of the object (Use the view_frames command and TF tree to find out what name should be used for the reference frame.)
+3. Transfrom the pose of the object to the ***vacuum_gripper2_suction_cup*** reference frame.
+4. Start a new CCS and run the MoveIt! commander script from Week4 with:```$ rosrun hrwros_week4 hrwros_moveit_commander_cmdline```. Then, move the robot2 to the *PreGrasp* pose.
+5. Finally, run: ```$ rosrun hrwros_week5 week5_assignment3.py```
+
+The screenshot of the result is located in the directory
+[src/hrwros_week5/week5_assignment3.png](src/hrwros_week5/week5_assignment3.png)

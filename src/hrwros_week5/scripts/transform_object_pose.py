@@ -51,7 +51,7 @@ def logical_camera_callback(data):
     # Create a pose stamped message type from the camera image topic.
     object_pose = geometry_msgs.msg.PoseStamped()
     object_pose.header.stamp = rospy.Time.now()
-    object_pose.header.frame_id = "logical_camera_frame"
+    object_pose.header.frame_id = "logical_camera_1_frame"
     object_pose.pose.position.x = data.models[-1].pose.position.x
     object_pose.pose.position.y = data.models[-1].pose.position.y
     object_pose.pose.position.z = data.models[-1].pose.position.z
@@ -78,6 +78,6 @@ if __name__== '__main__':
                     anonymous=True)
 
   # Subscribe to the logical camera topic.
-  rospy.Subscriber('hrwros/logical_camera', LogicalCameraImage, logical_camera_callback)
+  rospy.Subscriber('hrwros/logical_camera_1', LogicalCameraImage, logical_camera_callback)
 
   rospy.spin()
