@@ -180,7 +180,7 @@ Add six new Robot Poses
 $ roslaunch week4_moveit_config setup_assistant.launch
 ```
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week4/week4_assignment1.png](src/hrwros/hrwros_week4/week4_assignment1.png)
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment1.png](src/hrwros_week4/week4_assignment1.png)
 
 #### Assignment 2 Write a moveit commander script
 
@@ -211,7 +211,7 @@ $ rosrun hrwros_week4 hrwros_moveit_commander_cmdline
 
 5. And then you can run your script on the MoveIt! commander prompt that shows up
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week4/week4_assignment2.jpg](src/hrwros/hrwros_week4/week4_assignment2.jpg)
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment2.jpg](src/hrwros_week4/week4_assignment2.jpg)
 
 #### Assignment 3
 Using the MoveGroup Interface for implementing a simple pick and place pipeline for robot2 on the same lines as we did for robot1
@@ -232,7 +232,7 @@ $ roslaunch hrwros_gazebo hrwros_environment.launch
 $ roslaunch hrwros_week4 week4_assignment3.launch
 ```
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week4/week4_assignment3.jpg](src/hrwros/hrwros_week4/week4_assignment3.jpg)
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment3.jpg](src/hrwros_week4/week4_assignment3.jpg)
 
 
 ## <a name="week5"> Week 5 - Robot vision</a>
@@ -243,7 +243,7 @@ Add the logical camera to the world.
 * Camera 1: 1.2  1.8  2.0 0 1.57 0
 * Camera 2:-8.3 -1.23 1.8 0 1.57 0
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week5/week5_assignment1_task1.png](src/hrwros/hrwros_week5/week5_assignment1_task1.png)
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task1.png](src/hrwros_week5/week5_assignment1_task1.png)
 
 ##### 2. _Task 2_: Configure cameras
 Configure the logical cameras accordingly.
@@ -262,7 +262,7 @@ Configure the logical cameras accordingly.
 $ roslaunch hrwros_gazebo hrwros_environment.launch
 ```
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week5/week5_assignment1_task2.hpg](src/hrwros/hrwros_week5/week5_assignment1_task2.jpg)
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task2.hpg](src/hrwros_week5/week5_assignment1_task2.jpg)
 
 #### Assignment 2 TF command line tools
 ##### 1. _Task 1_: View_frames and tf_echo:
@@ -275,7 +275,7 @@ The screenshot of the result is located in the directory [src/hrwros/hrwros_week
 
 4. Now, go back to the terminal where you executed the view_frames command and execute the command ```rosrun tf tf_echo logical_camera_2_frame camera_rgb_frame```
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week5/week5_assignment2_task1.png](src/hrwros/hrwros_week5/week5_assignment2_task1.png)
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task1.png](src/hrwros_week5/week5_assignment2_task1.png)
 
 ##### 2. _Task 2_: Static_transform_publisher and RViz Visualization
 Use the static_transform_publisher to publish a static transform between the plate_top_link and a new frame called turtlebot_object_top which will be located 20cm on top of the TurtleBot.
@@ -300,7 +300,7 @@ $ roslaunch turtlebot_teleop keyboard_teleop.launch
 
 Move the TurtleBot around with the keyboard to a different location of your choice and notice that the newly published TF frame ***turtlebot_object_top*** moves along with the TurtleBot.
 
-The screenshot of the result is located in the directory [src/hrwros/hrwros_week5/week5_assignment2_task2.png](src/hrwros/hrwros_week5/week5_assignment2_task2.png)
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task2.png](src/hrwros_week5/week5_assignment2_task2.png)
 
 #### Assignment 3
 Using the MoveGroup Interface for implementing a simple pick and place pipeline for robot2 on the same lines as we did for robot1
