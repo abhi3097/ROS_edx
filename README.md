@@ -6,10 +6,14 @@
 
 [Week3 - Autonomous navigation](#week3)
 
+[Week4 - Manipulation](#week4)
+
+[Week5 - Robot vision](#week5)
+
+
 ## <a name="week1"> Week 1 - ROS Essentials</a>
 
 #### Assignment 1
-
 Implementing a node to be both a publisher and an subscriber.
 ##### 1. _Task 1_:
 An ultrasound sensor is installed in a system. It is used for measuring the height of the boxes running on a conveyor belt. When there is no box, the sensor publishes the maximum range and when detecting one, it reports the distance to the top surface of the box. The  ***week1_assignment1.py*** is modified to achieve:
@@ -28,7 +32,7 @@ Create a new message type called BoxHeightInformation.msg containing the placeho
 3. Generate the new message type as instructed in the lecture. Then run
 
 ```
-rosmsg show hrwros_msgs/BoxHeightInformation
+$ rosmsg show hrwros_msgs/BoxHeightInformation
 ```
 
 The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task2.png)
@@ -41,25 +45,26 @@ Only publish a new topic "/box_height_info" when a valid box is detected.
 
 Start a new terminal:
 ```
-roscore
+$ roscore
 ```
 In a new terminal:
 ```
-rosrun hrwros_week1 week1_assignment1.py
+$ rosrun hrwros_week1 week1_assignment1.py
 ```
 In another terminal
 ```
-rostopic list
+$ rostopic list
 ```
 If the the topic */box_height_info* is listed, run:
 ```
-rostopic info /box_height_info
-rostopic echo /box_height_info
+$ rostopic info /box_height_info
+$ rostopic echo /box_height_info
 ```
 
 After 5 messages, terminate the execution.
 
 The screenshot of the result is located in the directory [src/hrwros/hrwros_week1/scripts/week1_assignment1_task3.png](src/hrwros/hrwros_week1/scripts/week1_assignment1_task3.png)
+
 
 ## <a name="week2"> Week 2 - Build your own robot environment </a>
 #### Assignment 1
@@ -81,7 +86,6 @@ Add a sphere under the staircase. Correct implementations will show:
 5. not touching anything other than the floor
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment2.png](src/hrwros_week2/urdf/hrwros_week2_assignment2.png)
 
-
 #### Assignment 3
 Replace the robot ur5 with a provided robot. Correct implementations will show:
 Correct implementations will show:
@@ -92,6 +96,7 @@ Correct implementations will show:
 5. not touching anything other than the pedestal
 The screenshot of the result is located in the directory [src/hrwros_week2/urdf/hrwros_week2_assignment3.png](src/hrwros_week2/urdf/hrwros_week2_assignment3.png)
 
+
 ## <a name="week3"> Week 3 - Autonomous navigation </a>
 #### Assignment 1
 ##### 1. _Task 1_:
@@ -99,33 +104,36 @@ In this first part we will prepare for navigation in our factory world.
 
 1. Launch the hrwros factory simulation with:
 ```
-roslaunch hrwros_gazebo hrwros_environment.launch
+$ roslaunch hrwros_gazebo hrwros_environment.launch
 ```
 
 ***Note***: If you are not successful in launching the environment, retry.
 
 2. Launch AMCL with a map of the factory we created:
 ```
-roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml
+$ roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml
 ```
 3. Next, start the RViz navigation visualization:
 ```
-roslaunch turtlebot_rviz_launchers view_navigation.launch
+$ roslaunch turtlebot_rviz_launchers view_navigation.launch
 ```
 Change *robot_description* to *turtlebot_description* under *RobotModel*.
 The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task1.png](src/hrwros_week3/week3_assignment1_task1.png)
+
 ##### 2. _Task 2_:
 Find the location of the robot under *Model* -> *mobile_base* of Gazebo and run:
 ```
-roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<XCOORD> initial_pose_y:=<YCOORD>
+$ roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<XCOORD> initial_pose_y:=<YCOORD>
 ```
 The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task2.png](src/hrwros_week3/week3_assignment1_task2.png)
+
 ##### 3. _Task 3_:
 Navigating the turtlebot around the factory.
 ```
-roslaunch turtlebot_teleop keyboard_teleop.launch
+$ roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
 The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment1_task3.png](src/hrwros_week3/week3_assignment1_task3.png)
+
 ***Note***: Keep the terminal with teleop active while navigating.
 
 #### Assignment 2 - Pathing
@@ -147,16 +155,175 @@ The screenshot of the result is located in the directory [src/hrwros_week3/week3
 Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part1.py*** using the information under *TF* ->*turtlebot_target1*.
 Run:
 ```
-roslaunch hrwros_gazebo hrwros_environment.launch
-roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<A> initial_pose_y:=<B>
-roslaunch turtlebot_rviz_launchers view_navigation.launch
-roslaunch hrwros_week3 week3_assignment3_part1.launch
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+$ roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml initial_pose_x:=<A> initial_pose_y:=<B>
+$ roslaunch turtlebot_rviz_launchers view_navigation.launch
+$ roslaunch hrwros_week3 week3_assignment3_part1.launch
 ```
 The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment3_task1.jpg](src/hrwros_week3/week3_assignment3_task1.jpg)
 
 ##### 2. _Task 2_:
 The first goal is to navigate the TurtleBot to its second target location, following similar steps as you followed in the first part. In the second part, the goal is to visualize and become aware of the ***"unknown obstacle avoidance"***. Update the position of the 1st target of the turtlebot in the file ***week3_assignment3_part2.py*** using the information under *TF* ->*turtlebot_target2*.
 ```
-roslaunch hrwros_week3 week3_assignment3_part2.launch
+$ roslaunch hrwros_week3 week3_assignment3_part2.launch
 ```
 The screenshot of the result is located in the directory [src/hrwros_week3/week3_assignment3_task2.jpg](src/hrwros_week3/week3_assignment3_task2.jpg)
+
+
+## <a name="week4"> Week 4 - Manipulation</a>
+
+#### Assignment 1 Modifying an existing MoveIt! configuration package
+
+Add six new Robot Poses
+
+```
+$ roslaunch week4_moveit_config setup_assistant.launch
+```
+
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment1.png](src/hrwros_week4/week4_assignment1.png)
+
+#### Assignment 2 Write a moveit commander script
+
+1. Open a new terminal and source the workspace setup files. Start the factory simulation with:
+```
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+```
+
+2. Outside the terminal, in your favorite editor, create a new file called ***week4_assignment2_script*** in ***$HOME/hrwros_ws/src/hrwros_week4/scripts*** folder.
+
+3. Add a sequence of moveit commander scripts such that robot2 executes the following motions:
+
+  1. First the robot2 goes to the R2Up configuration
+
+  2. Then robot2 goes to the R2Home configuration.
+
+  3. Then robot2 goes to the R2PreGrasp configuration.
+
+  4. Then the end effector of robot2 moves linearly down by 25cm.
+
+4. Then, start MoveIt! commander with the following command in the same file path where you created your script, that is:
+
+```
+$ roscd hrwros_week4/scripts
+
+$ rosrun hrwros_week4 hrwros_moveit_commander_cmdline
+```
+
+5. And then you can run your script on the MoveIt! commander prompt that shows up
+
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment2.jpg](src/hrwros_week4/week4_assignment2.jpg)
+
+#### Assignment 3
+Using the MoveGroup Interface for implementing a simple pick and place pipeline for robot2 on the same lines as we did for robot1
+1. Complete the script ***week4_assignment3.py*** in the hrwros_week4 package wherever you are instructed with *write your code here*.
+
+2. After you have completed the script, start the factory simulation in a new terminal with:
+```
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+```
+
+3. Then, make sure to adjust the perspective of the Gazebo Simulation to have a clear view of Robot2.
+
+4. In another terminal, first navigate to the ***hrwros_week4/scripts*** folder with roscd. Make the ***week4_assignment3.py*** script executable.
+
+5. Finally, run the command:
+
+```
+$ roslaunch hrwros_week4 week4_assignment3.launch
+```
+
+The screenshot of the result is located in the directory [src/hrwros_week4/week4_assignment3.jpg](src/hrwros_week4/week4_assignment3.jpg)
+
+
+## <a name="week5"> Week 5 - Robot vision</a>
+
+#### Assignment 1 Install and configure logical cameras
+##### 1. _Task 1_: Install cameras
+Add the logical camera to the world.
+* Camera 1: 1.2  1.8  2.0 0 1.57 0
+* Camera 2:-8.3 -1.23 1.8 0 1.57 0
+
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task1.png](src/hrwros_week5/week5_assignment1_task1.png)
+
+##### 2. _Task 2_: Configure cameras
+Configure the logical cameras accordingly.
+
+***Configuration for Logical Camera 1:***
+* Model name: logical_camera_1
+* Link name: logical_camera_1_link
+* Sensor name: logical_camera_1
+
+***Configuration for Logical Camera 2:***
+* Model name: logical_camera_2
+* Link name: logical_camera_2_link
+* Sensor name: logical_camera_2
+
+```
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+```
+
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment1_task2.jpg](src/hrwros_week5/week5_assignment1_task2.jpg)
+
+#### Assignment 2 TF command line tools
+##### 1. _Task 1_: View_frames and tf_echo:
+
+1. Start the factory simulation with: ```roslaunch hrwros_gazebo hrwros_environment.launch```
+
+2. In a new terminal, execute the command: ```rosrun tf view_frames```
+
+3. Then, open the ***frames.pdf*** file. Verify that the TF frames ***logical_camera_1_frame*** and ***logical_camera_2_frame*** are now a part of the TF tree and and the entire TF tree is connected without any breaks.
+
+4. Now, go back to the terminal where you executed the view_frames command and execute the command ```rosrun tf tf_echo logical_camera_2_frame camera_rgb_frame```
+
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task1.png](src/hrwros_week5/week5_assignment2_task1.png)
+
+##### 2. _Task 2_: Static_transform_publisher and RViz Visualization
+Use the static_transform_publisher to publish a static transform between the plate_top_link and a new frame called turtlebot_object_top which will be located 20cm on top of the TurtleBot.
+
+1. Start the simulation in RViz as
+```
+$ roslaunch hrwros_gazebo hrwros_environment.launch
+```
+
+2. Then add an additional Robot Model display and modify the ***robot_description*** to ***turtlebot_description***.
+3. Enable the TF visualization such that only the ***plate_top_link*** frame is shown.
+
+4. Start a new terminal. Publish a static transform between ***plate_top_link*** and a new frame ***turtlebot_object_top*** such that the ***turtlebot_object_top frame*** is 20cm above ***plate_top_link***. Recall that a static transform can be published as follows:
+```
+$ rosrun tf2_ros static_transform_publisher <specify_correct_translation> 0 0 0 1 plate_top_link turtlebot_object_top
+```
+
+5. Go back to RViz and enable the newly published frame ***turtlebot_object_top***. It should show up exactly on top of the reference frame for ***plate_top_link***.
+
+6. Now in a new terminal, start the turtlebot teleoperation with:
+```
+$ roslaunch turtlebot_teleop keyboard_teleop.launch
+```
+
+When moving the TurtleBot around with the keyboard to a different location, you can notice that the newly published TF frame ***turtlebot_object_top*** moves along with the TurtleBot.
+
+The screenshot of the result is located in the directory [src/hrwros_week5/week5_assignment2_task2.png](src/hrwros_week5/week5_assignment2_task2.png)
+
+#### Assignment 3 tf2_ros API
+Start the assignment specific factory simulation with:
+```
+$ roslaunch hrwros_week5 week5_environment.launch
+```
+
+You should see the factory simulation show up as usual, we have just modified some internal configurations for this assignment. Verify that the Turtlebot now shows up right next to Robot2 pedestal under the newly installed logical camera.
+Call the spawn_object_on_turtlebot service with:
+```
+$ rosservice call /spawn_object_on_turtlebot
+```
+
+After this, you should see a white box show up on top of the TurtleBot. Now, complete the script ***week5_assignment3.py*** where you are instructed with *write your code here*. This involves the following tasks:
+
+1. Subscribe to the relevant topic which would contain information about the object on top of the TurtleBot.
+
+2. Update the relevant reference frame for the pose of the object (Use the view_frames command and TF tree to find out what name should be used for the reference frame.)
+3. Transfrom the pose of the object to the ***vacuum_gripper2_suction_cup*** reference frame.
+4. Start a new CCS and run the MoveIt! commander script from Week4 with:```$ rosrun hrwros_week4 hrwros_moveit_commander_cmdline```. Then, move the robot2 to the *PreGrasp* pose.
+5. Finally, run: ```$ rosrun hrwros_week5 week5_assignment3.py```
+
+The screenshot of the result is located in the directory
+[src/hrwros_week5/week5_assignment3.png](src/hrwros_week5/week5_assignment3.png)
